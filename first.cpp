@@ -1,9 +1,0 @@
-#include<iostream>
-
-using namespace std;
-
-int main(){
-    cout << "FS Project";
-    cout << "nithish";
-    cout << "branch changes";
-}
