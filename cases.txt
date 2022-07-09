@@ -1,0 +1,2 @@
+KA|Bangalore|4|3|1|0
+KA|Mysore|6|3|2|1

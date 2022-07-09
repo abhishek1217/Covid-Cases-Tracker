@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 string su,sp;
 char username[10],passwd[10];
 
