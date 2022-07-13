@@ -35,6 +35,9 @@ class Cases {
 void update(char *){
     cout << "Updated";
 }
+
+
+
 void insert_cases(){
     Cases insert;
     fstream city,state,buff;
