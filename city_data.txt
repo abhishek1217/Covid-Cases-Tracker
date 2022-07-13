@@ -1,2 +1,4 @@
-Kar|Blr|5100|1880|300|40
-Kar|Mys|4000|2000|100|10
+Kar|Blr|5000|500|50|5
+Kerala|Kochi|6000|600|60|6
+Kerala|Trivandrum|4000|400|40|4
+Kerala|Alapuzha|6000|600|60|6

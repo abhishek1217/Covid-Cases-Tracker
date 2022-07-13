@@ -102,13 +102,19 @@ void insert_cases(){
                 update_state(s_name);
                 break;
             }
-            else{
-                state.close();
-                buff.open("state_data.txt",ios::app);
-                buff << insert.state << "|" << insert.total_cases << "|" << insert.active_cases << "|"<< insert.recovered << "|"<< insert.deaths << "\n";
-                buff.close();
-                break;
-            }
+            // else{
+            //     state.close();
+            //     buff.open("state_data.txt",ios::app);
+            //     buff << insert.state << "|" << insert.total_cases << "|" << insert.active_cases << "|"<< insert.recovered << "|"<< insert.deaths << "\n";
+            //     buff.close();
+            //     break;
+            // }
+        }
+        if(strcmp(s_name,insert.state)){
+            state.close();
+            buff.open("state_data.txt",ios::app);
+            buff << insert.state << "|" << insert.total_cases << "|" << insert.active_cases << "|"<< insert.recovered << "|"<< insert.deaths << "\n";
+            buff.close();
         }
         city << insert.state << "|" << insert.city << "|" << insert.total_cases << "|" << insert.active_cases << "|"<< insert.recovered << "|"<< insert.deaths << "\n";
     }
@@ -146,7 +152,7 @@ int main(){
         }
     }
     while(1){
-    cout << "\n1. Insert Record\n2.Update City Details\n4. Exit\n";
+    cout << "\n1. Insert Record\n2. Update City Details\n4. Exit\n";
     cout << "\nEnter your choice: ";
     cin >> choice;
     switch(choice){

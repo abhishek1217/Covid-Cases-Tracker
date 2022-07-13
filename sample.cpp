@@ -23,6 +23,26 @@ int main(){
 	// 	perror("Error renaming file");
 	// else
 	// 	cout << "File renamed successfully";
-    int a = 10;
-    cout << (char *)a;
+    // int a = 10;
+    // cout << (char *)a;
+    // fstream f;
+    // char s_name[20];
+    // f.open("state_data.txt",ios::in);
+    // char buffer[80];
+    // while(!f.eof()){
+    //     f.getline(s_name,20,'|');
+    //     f.getline(buffer,80,'\n');
+    //     cout << s_name <<endl;
+    // }
+    int a,b;
+    a = 10;
+    b = 20;
+    if(a<b){
+        goto label;
+    }
+    else{
+        cout << "Goto doesn't work";
+    }
+    label:
+            cout << "This is goto";
 }
