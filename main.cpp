@@ -9,6 +9,8 @@ class Cases {
         char state[20],city[20],total_cases[20],active_cases[20],recovered[20],deaths[20];
 };
 
+
+//Function to get number of records a particular file.
 int no_of_records(char s[100]){
     fstream file;
     file.open(s,ios::in);
@@ -20,8 +22,10 @@ int no_of_records(char s[100]){
     }
     return counter;
 }
+
+//Updating the values in city_data text file.
 void update_city(){
-    Cases update[2];
+    Cases update[2]; //Creating an array of objects to store values of multiple variables.
     char s[100] = "city_data.txt";
     int count = no_of_records(s);
     cout << "\nEnter State: ";
@@ -66,11 +70,11 @@ void update_city(){
 }
 
 void update_state(char *state_name){
-    cout << "Updated";
+    
 }
 
 
-
+//Inserting records into the city_data and state_data text file.
 void insert_cases(){
     Cases insert;
     fstream city,state,buff;
@@ -97,7 +101,6 @@ void insert_cases(){
         {
             state.getline(s_name,20,'|');
             state.getline(buffer,80,'\n');
-            cout << s_name << " " << insert.state << endl;
             if(!(strcmp(s_name,insert.state))){
                 update_state(s_name);
                 break;
@@ -125,9 +128,8 @@ void display(){
 
 int main(){
     int choice,dummy;
-    cout << "\nCovid Dump\n";
-    cout << "\nThis is FS Project(not dbms)\n";
-    cout << "\n1. SignUp\n2. Login\n3. Exit\n";
+    cout << "\nCovid Management System\n";
+    cout << "\n1. SignUp\t2. Login\t3. Exit\n";
     while(dummy!=1){
         cout << "\nEnter your choice: ";
         cin >> choice;
