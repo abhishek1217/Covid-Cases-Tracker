@@ -1,3 +1,1 @@
-KA|Bangalore|4|3|1|0
-KA|Mysore|6|3|2|1
-Karnataka|Bangalore|6789|4567|234|234
+something
