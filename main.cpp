@@ -46,58 +46,36 @@ int no_of_records(){
 }
 
 int main(){
-    int choice;
-    fstream display;
-    display.open("cases.txt",ios::in);
-    char state_name[20];
-    char t_cases[20];
-    int sum;
-    char buffer[80];
-    int record_count = no_of_records();
-    int i = 0;
-    display.getline(state_name,20,'|');
-    display.getline(t_cases,20,'|');
-    sum += atoi(t_cases);
-    char state_name2[20];
-    char t_cases2[20];
-    while(i < record_count){
-        display.getline(buffer,80,'\n');
-        i++;
-        display.getline(state_name2,20,'|');
-        display.getline(t_cases2,20,'|');
-        if(strcmp(state_name,state_name2)==0)
-            sum += atoi(t_cases2);
-        if(i==record_count){
-            cout << "\nState\t" << "Total Cases\n";
-            cout << "\n" << state_name << "\t" << sum;
-            record_count--;
-            i=0;
-            sum=0;
-        }
-    }
+    int choice,dummy;
     cout << "\nCovid Dump\n";
     cout << "\nThis is FS Project(not dbms)\n";
-    cout << "\nMenu\n";
-    cout << "1.SignUp\n2.Login\n3.Insert Record\n4.Exit\n";
+    cout << "\n1. SignUp\n2. Login\n3. Exit\n";
+    while(dummy!=1){
+        cout << "\nEnter your choice: ";
+        cin >> choice;
+        switch(choice){
+            case 1: signup();
+            break;
+            case 2:  if(login()){
+                        cout << "\nSuccessfully Logged In";
+                        dummy = 1;
+                    }
+                    else
+                        cout <<"\nYou have entered the wrong Username or Password";
+                    break;
+            case 3: exit(1);
+            default: cout << "\nInvalid Choice\n";
+        }
+    }
     while(1){
+    cout << "\n1. Insert Record\n4. Exit\n";
     cout << "\nEnter your choice: ";
     cin >> choice;
     switch(choice){
-        case 1: signup();
-        break;
-        case 2: login();
-        break;
-        case 3: insert_cases();
+        case 1: insert_cases();
         break;
         case 4: exit(1);
         default: cout << "\nInvalid Choice";
         }
     }
-
-    // signup();
-    // if(login()){
-    //     cout << "\nSuccessfully Logged In";
-    // }
-    // else
-    //     cout <<"\nCant remember password also, thu";
 }

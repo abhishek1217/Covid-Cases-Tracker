@@ -34,7 +34,9 @@ int signup(){
         while(!usr_data.eof()){
             usr_data.getline(un,10,'|');
             usr_data.getline(pwd,10,'\n');
-            if((strcmp(un,username) && strcmp(pwd,passwd)) == 0){
+            cout << strcmp(un,username) << " " << strcmp(pwd,passwd) << endl;
+            cout << un << " " << pwd << " ";
+            if((strcmp(un,username) || strcmp(pwd,passwd)) == 0){
                 return 1;
             }
         }
