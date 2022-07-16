@@ -1,4 +1,7 @@
 #include<iostream>
+#include<fstream>
+#include<iomanip>
+#include<string>
 #include"users.cpp"
 
 using namespace std;
@@ -20,6 +23,28 @@ int no_of_records(char s[100]){
         counter ++;
     }
     return counter;
+}
+
+void display_states(){
+    Cases display_state;
+    fstream f;
+    f.open("state_data.txt",ios::in);
+    // cout << "\n\nState\t\t\tTotal Cases\t\tActive Cases\t\tRecovered\t\tDeaths\n";
+    // cout << "------\t\t\t-----------\t\t-------\t\t\t------\t\t\t------\n";
+    cout << left << setw(15) << "State"<< left << setw(15) << "Total Cases" << left << setw(15) << "Active Cases" << left << setw(15) << "Recovered" << left << setw(15) << "Deaths" << endl;
+    //cout << "------\t\t------\t\t\t-----------\t\t-------\t\t\t------\t\t\t------\n";
+    cout << left << setw(15) << "-----" << left << setw(15) << "-----------" << left << setw(15) << "-----------" << left << setw(15) << "---------" << left << setw(15) << "------" << endl;
+    while(!f.eof()){
+        f.getline(display_state.state,20,'|');
+        f.getline(display_state.total_cases,20,'|');
+        f.getline(display_state.active_cases,20,'|');
+        f.getline(display_state.recovered,20,'|');
+        f.getline(display_state.deaths,20,'\n');
+        // cout << "\n" << display_state.state << "\t\t\t" << display_state.total_cases << "\t\t\t" << display_state.active_cases << "\t\t\t" << display_state.recovered << "\t\t\t" << display_state.deaths;
+        cout << "\n";
+        cout << left << setw(15) << display_state.state << left << setw(15) << display_state.total_cases << left << setw(15) << display_state.active_cases << left << setw(15) << display_state.recovered << left << setw(15) << display_state.deaths << endl;
+    }
+    f.close();
 }
 
 //Updating the values in city_data text file.
@@ -66,6 +91,37 @@ void update_city(){
     temp.close();
     remove("city_data.txt");
     rename("cityout.txt","city_data.txt");
+}
+
+void city_search(){
+    Cases search;
+    char c_name[20];
+    char buffer[100];
+    fstream s;
+    s.open("city_data.txt",ios::in);
+    cout << "\nEnter the city whose details you require";
+    cin >> c_name;
+    while(!s.eof()){
+        s.getline(search.state,20,'|');
+        s.getline(search.city,20,'|');
+        s.getline(search.total_cases,20,'|');
+        s.getline(search.active_cases,20,'|');
+        s.getline(search.recovered,20,'|');
+        s.getline(search.deaths,20,'\n');
+        if(strcmp(search.city,c_name)==0){
+            cout << "\nCity Record Exists\n";
+            // cout << "\n\nState\t\tCity\t\t\tTotal Cases\t\tActive Cases\t\tRecovered\t\tDeaths\n";
+            // cout << "------\t\t------\t\t\t-----------\t\t-------\t\t\t------\t\t\t------\n";
+            // cout << "\n" << search.state << "\t\t" << search.city << "\t\t\t" << search.total_cases << "\t\t" << search.active_cases << "\t\t" << search.recovered << "\t\t" << search.deaths << "\n";
+            cout << left << setw(15) << "State" << left << setw(15) << "City" << left << setw(15) << "Total Cases" << left << setw(15) << "Active Cases" << left << setw(15) << "Recovered" << left << setw(15) << "Deaths" << endl;
+            //cout << "------\t\t------\t\t\t-----------\t\t-------\t\t\t------\t\t\t------\n";
+            cout << left << setw(15) << "-----" << left << setw(15) << "-----" << left << setw(15) << "-----------" << left << setw(15) << "-----------" << left << setw(15) << "---------" << left << setw(15) << "------" << endl;
+            cout << left << setw(15) << search.state << left << setw(15) << search.city << left << setw(15) << search.total_cases << left << setw(15) << search.active_cases << left << setw(15) << search.recovered << left << setw(15) << search.deaths << endl;
+            s.close();
+            return;
+        }
+    }
+    cout << "\nCity doesn't exit in the records";
 }
 
 void update_state(char *state_name){
@@ -124,16 +180,31 @@ void insert_cases(){
     city.close();
 }
 
-
-
-void display(){
-    fstream filebuf;
-    
+void display_cities(){
+    fstream cityf;
+    Cases display_city;
+    cityf.open("city_data.txt",ios::in);
+    cout << "\n";
+    cout << left << setw(15) << "State" << left << setw(15) << "City" << left << setw(15) << "Total Cases" << left << setw(15) << "Active Cases" << left << setw(15) << "Recovered" << left << setw(15) << "Deaths" << endl;
+    cout << left << setw(15) << "-----" << left << setw(15) << "-----" << left << setw(15) << "-----------" << left << setw(15) << "-----------" << left << setw(15) << "---------" << left << setw(15) << "------" << endl;
+    while(!cityf.eof()){
+        cityf.getline(display_city.state,20,'|');
+        cityf.getline(display_city.city,20,'|');
+        cityf.getline(display_city.total_cases,20,'|');
+        cityf.getline(display_city.active_cases,20,'|');
+        cityf.getline(display_city.recovered,20,'|');
+        cityf.getline(display_city.deaths,20,'\n');
+        cout << "\n";
+        cout << left << setw(15) << display_city.state << left << setw(15) << display_city.city << left << setw(15) << display_city.total_cases << left << setw(15) << display_city.active_cases << left << setw(15) << display_city.recovered << left << setw(15) << display_city.deaths << endl;
+    }
+    cityf.close();
 }
 
 int main(){
     int choice,dummy;
     cout << "\nCovid Management System\n";
+    cout << "\nCurrent Situation in States\n";
+    display_states();
     cout << "\n1. SignUp\t2. Login\t3. Exit\n";
     while(dummy!=1){
         cout << "\nEnter your choice: ";
@@ -153,15 +224,19 @@ int main(){
         }
     }
     while(1){
-    cout << "\n1. Insert Record\n2. Update City Details\n4. Exit\n";
+    cout << "\n1. Insert Record\n2. Display City Details\n3. Update City Details\n4. Search City\n5. Exit\n";
     cout << "\nEnter your choice: ";
     cin >> choice;
     switch(choice){
         case 1: insert_cases();
         break;
-        case 2: update_city();
+        case 2: display_cities();
         break;
-        case 4: exit(1);
+        case 3: update_city();
+        break;
+        case 4: city_search();
+        break;
+        case 5: exit(1);
         default: cout << "\nInvalid Choice";
         }
     }
