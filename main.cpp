@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 #include<iomanip>
 #include<string>
 #include"users.cpp"
@@ -76,6 +77,7 @@ void update_state(char state_name[],int total_cases,int active_cases,int recover
     remove("state_data.txt");
     rename("state_temp.txt","state_data.txt");
 }
+
 //Updating the values in city_data text file.
 void update_city(){
     Cases update[2]; //Creating an array of objects to store values of multiple variables.
