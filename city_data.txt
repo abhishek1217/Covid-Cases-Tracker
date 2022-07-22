@@ -1,5 +1,7 @@
-Kar|Blr|5000|500|50|5
+Kar|Blr|5800|397|140|18
 Kerala|Kochi|6300|570|80|16
 Kerala|Alapuzha|6000|600|60|6
 TamilNadu|Chennai|5000|400|40|4
 Andhra|Hyderabad|6000|600|600|60
+Gujarat|Ahmedabad|5000|500|50|5
+Assam|Guwhati|6500|548|100|18

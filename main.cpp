@@ -244,7 +244,7 @@ int main(){
         }
     }
     while(1){
-    cout << "\n1. Insert Record\n2. Display City Details\n3. Update City Details\n4. Search City\n5. Exit\n";
+    cout << "\n1. Insert Record\n2. Display City Details\n3. Update City Details\n4. Search City\n5. Display State Details\n6. Exit\n";
     cout << "\nEnter your choice: ";
     cin >> choice;
     switch(choice){
@@ -256,7 +256,9 @@ int main(){
         break;
         case 4: city_search();
         break;
-        case 5: exit(1);
+        case 5: display_states();
+        break;
+        case 6: exit(1);
         default: cout << "\nInvalid Choice";
         }
     }

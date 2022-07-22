@@ -34,15 +34,21 @@ int main(){
     //     f.getline(buffer,80,'\n');
     //     cout << s_name <<endl;
     // }
-    int a,b;
-    a = 10;
-    b = 20;
-    if(a<b){
-        goto label;
-    }
-    else{
-        cout << "Goto doesn't work";
-    }
-    label:
-            cout << "This is goto";
+    // int a,b;
+    // a = 10;
+    // b = 20;
+    // if(a<b){
+    //     goto label;
+    // }
+    // else{
+    //     cout << "Goto doesn't work";
+    // }
+    // label:
+    //         cout << "This is goto";
+    // Wow trying out goto, crazy.
+    int n = 10;
+    int A[n];
+    A[0] = 2;
+    for(int x : A)
+        cout << x << endl;
 }
