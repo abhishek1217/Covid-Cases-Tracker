@@ -1,6 +1,7 @@
 #include<iostream>
 // #include<atoi>
 #include<fstream>
+// a comment, just to see a few changes.
 
 using namespace std;
 
@@ -46,9 +47,9 @@ int main(){
     // label:
     //         cout << "This is goto";
     // Wow trying out goto, crazy.
-    int n = 10;
-    int A[n];
-    A[0] = 2;
-    for(int x : A)
-        cout << x << endl;
+    // int n = 10;
+    // int A[n];
+    // A[0] = 2;
+    // for(int x : A)
+    //     cout << x << endl;
 }
